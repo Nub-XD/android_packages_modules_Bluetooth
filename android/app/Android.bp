@@ -161,6 +161,16 @@ android_app {
         optimize: false,
         proguard_flags_files: ["proguard.flags"],
     },
+    required: [
+        "audio_set_configurations_bfbs",
+        "audio_set_configurations_json",
+        "audio_set_scenarios_bfbs",
+        "audio_set_scenarios_json",
+        "bt_did.conf",
+        "bt_stack.conf",
+        "interop_database.conf",
+        "privapp_allowlist_com.android.bluetooth.xml",
+    ],
     apex_available: [
         "//apex_available:platform",
         "com.android.btservices",

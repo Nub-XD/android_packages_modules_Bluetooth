@@ -1,0 +1,6 @@
+// Bluetooth interop_database.conf config file
+prebuilt_etc {
+    name: "interop_database.conf",
+    src: "interop_database.conf",
+    sub_dir: "bluetooth",
+}

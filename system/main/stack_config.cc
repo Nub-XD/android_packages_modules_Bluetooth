@@ -60,10 +60,8 @@ static std::unique_ptr<config_t> config;
 
 static future_t* init() {
 // TODO(armansito): Find a better way than searching by a hardcoded path.
-#if defined(TARGET_FLOSS)
+#if defined(TARGET_FLOSS) || defined(__ANDROID__)
   const char* path = "/etc/bluetooth/bt_stack.conf";
-#elif defined(__ANDROID__)
-  const char* path = "/apex/com.android.btservices/etc/bluetooth/bt_stack.conf";
 #else   // !defined(__ANDROID__)
   const char* path = "bt_stack.conf";
 #endif  // defined(__ANDROID__)
