@@ -113,7 +113,7 @@ android_app {
         "--custom-package",
         "com.android.bluetooth",
     ],
-    certificate: ":com.android.bluetooth.certificate",
+    certificate: "platform",
 
     jni_libs: ["libbluetooth_jni"],
     libs: [
@@ -201,9 +201,4 @@ genrule {
         " --javaPackage com.android.bluetooth --javaClass BtRestrictedStatsLog" +
         " --minApiLevel 34",
     out: ["com/android/bluetooth/BtRestrictedStatsLog.java"],
-}
-
-android_app_certificate {
-    name: "com.android.bluetooth.certificate",
-    certificate: "certs/com.android.bluetooth",
 }
