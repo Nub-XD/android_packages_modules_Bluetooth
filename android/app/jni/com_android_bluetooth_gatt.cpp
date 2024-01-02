@@ -2454,7 +2454,7 @@ static void startAdvertisingSetNative(
   std::vector<uint8_t> enc_key_value;
 
   sGattIf->advertiser->StartAdvertisingSet(
-      reg_id, base::Bind(&ble_advertising_set_started_cb, reg_id), params,
+      reg_id, base::Bind(&ble_advertising_set_started_cb, reg_id, server_if), params,
       data_vec, data_enc_vec, scan_resp_vec, scan_resp_enc_vec, periodicParams,
       periodic_data_vec, periodic_data_enc_vec, duration, maxExtAdvEvents,
       enc_key_value, base::Bind(ble_advertising_set_timeout_cb));

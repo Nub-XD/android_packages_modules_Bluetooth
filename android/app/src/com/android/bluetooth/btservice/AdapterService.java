@@ -1101,7 +1101,7 @@ public class AdapterService extends Service {
         sendBroadcastMultiplePermissions(switchBufferSizeIntent, new String[] {
                 android.Manifest.permission.BLUETOOTH_CONNECT,
                 android.Manifest.permission.BLUETOOTH_PRIVILEGED
-        }, null);
+        }, (String[]) null);
     }
 
     void switchCodecCallback(boolean isLowLatencyBufferSize) {
@@ -4393,6 +4393,18 @@ public class AdapterService extends Service {
         @Override
         public boolean isBroadcastActive(AttributionSource attributionSource) {
             return false;
+        }
+
+        @Override
+        public void getEncKeyMaterialValue(SynchronousResultReceiver receiver) {
+            try {
+                receiver.send(getEncKeyMaterialValue());
+            } catch (RuntimeException e) {
+                receiver.propagateException(e);
+            }
+        }
+        private byte[] getEncKeyMaterialValue() {
+            return null;
         }
 
         @Override
